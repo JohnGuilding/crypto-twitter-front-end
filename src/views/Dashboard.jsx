@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
 import MintNFTButton from "../components/MintNFTButton";
+import TweetFeed from '../components/TweetFeed';
 
 const Dashboard = () => {
     return (
         <>
             <MintNFTButton />
-            <div>Dashboard</div>
+            <TweetFeed />
         </>
     )
 }

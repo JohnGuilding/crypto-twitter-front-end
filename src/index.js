@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import Dashboard from './views/Dashboard';
+import Profile from './views/Profile';
 import PageNotFound from './views/PageNotFound';
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} >
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
     </Routes>

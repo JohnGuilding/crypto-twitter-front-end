@@ -1,6 +1,6 @@
 const Tweet = () => {
     return (
-        <div></div>
+        <div>Tweet</div>
     )
 }
 

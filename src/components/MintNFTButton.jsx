@@ -1,6 +1,6 @@
 const MintNFTButton = () => {
     return (
-        <div></div>
+        <button>Create your membership NFT</button>
     )
 }
 
