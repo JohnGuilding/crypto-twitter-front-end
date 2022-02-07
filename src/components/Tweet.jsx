@@ -1,6 +1,8 @@
+import './../styles/tweet.scss';
+
 const Tweet = () => {
     return (
-        <div>Tweet</div>
+        <div className="tweet">Tweet</div>
     )
 }
 

@@ -1,8 +1,8 @@
 const PageNotFound = () => {
     return (
-        <>
-            <div>Oops, page not found</div>
-        </>
+        <main>
+            <h3>Oops, page not found</h3>
+        </main>
     )
 }
 
