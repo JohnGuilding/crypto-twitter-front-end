@@ -1,11 +1,10 @@
+import Tweet from "./Tweet";
 import { ethers } from "ethers";
 import { useMemo, useState } from "react";
-import Tweet from "./Tweet";
 import './../styles/tweet-feed.scss';
 import abi from './../utils/Cryptwit.json';
 
 const TweetFeed = () => {
-    const [currentAccount, setCurrentAccount] = useState("");
     const [allTweets, setAllTweets] = useState([]);
     const contractAddress = '0x72699E6B9ce89a69EC6C0cdC005C41b97e5Bac3D';
     const contractABI = abi.abi;
@@ -65,39 +64,14 @@ const TweetFeed = () => {
         }
     }
 
-    const connectWallet = async () => {
-        try {
-            const { ethereum } = window;
-            if (!ethereum) {
-                alert("Get MetaMask!")
-                return;
-            } 
-
-            const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-
-            console.log("Connected", accounts[0]);
-            setCurrentAccount(accounts[0]);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     useMemo(() => {
         checkIfWalletIsConnected();
     }, [])
 
-    const test = () => {
-        console.log("Test allTweets",allTweets);
-    }
-
     return (
-        <div>
-            <button onClick={test}>Test</button>
-            {!currentAccount && (
-                <button onClick={connectWallet}>Connect Wallet</button>
-            )}
+        <div className="tweet-feed">
             {allTweets.length >= 1 && (
-                <section className="tweet-feed">
+                <section className="tweet-feed_tweets">
                 {allTweets.slice(0).reverse().map((tweet, index) => {
                     return (
                         <div key={index}>
