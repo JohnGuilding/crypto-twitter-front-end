@@ -1,11 +1,13 @@
 import { useState } from "react";
 
 import MintNFTButton from "../components/MintNFTButton";
+import PostTweet from "../components/PostTweet";
 import TweetFeed from '../components/TweetFeed';
 import './../styles/dashboard.scss';
 
 const Dashboard = () => {
     const [currentAccount, setCurrentAccount] = useState("");
+
 
     const connectWallet = async () => {
         try {
@@ -23,12 +25,14 @@ const Dashboard = () => {
             console.log(error);
         }
     }
+
     return (
         <main className="dashboard">
             <MintNFTButton />
             {!currentAccount && (
                 <button onClick={connectWallet}>Connect Wallet</button>
             )}
+            <PostTweet />
             <TweetFeed />
         </main>
     )

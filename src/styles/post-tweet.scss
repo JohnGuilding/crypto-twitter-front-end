@@ -1,0 +1,32 @@
+.post-tweet-container {
+    width: 20%;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 2rem;
+}
+
+.form {
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__input {
+    padding: 0.2rem;
+    border: 0;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.form__submit-button {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    padding: 0.2rem;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    width: 100px;
+    align-self: center;
+}

@@ -6,7 +6,7 @@ const Header = () => {
         <header className='header'>
             <h1>Cyptwit</h1>
             <h2>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/">Dashboard</Link>
             </h2> 
             {" | "}
             <h2>
