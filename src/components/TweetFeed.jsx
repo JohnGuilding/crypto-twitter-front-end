@@ -27,7 +27,7 @@ const TweetFeed = () => {
                 tweets.forEach(tweet => {
                     tweetObjects.push({
                         address: tweet.tweeter,
-                        timestamp: new Date(tweet.timestamp * 1000).toString(),
+                        dateTime: convertUnixToDate(tweet.timestamp),
                         message: tweet.message
                     });
                 });
@@ -39,6 +39,13 @@ const TweetFeed = () => {
         } catch (error) {
             console.log(error);
         }
+    }
+
+    const convertUnixToDate = (unixTimestamp) => {
+        const date = new Date(unixTimestamp * 1000);
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        return `${date.toLocaleDateString("en-GB")} at ${hours}:${minutes}`;
     }
 
     const checkIfWalletIsConnected = async () => {
