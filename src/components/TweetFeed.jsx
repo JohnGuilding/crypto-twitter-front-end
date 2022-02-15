@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import './../styles/tweet-feed.scss';
 import abi from './../utils/Cryptwit.json';
 
-const TweetFeed = () => {
+const TweetFeed = ({ account }) => {
     const [allTweets, setAllTweets] = useState([]);
     const contractAddress = '0x72699E6B9ce89a69EC6C0cdC005C41b97e5Bac3D';
     const contractABI = abi.abi;
@@ -82,7 +82,7 @@ const TweetFeed = () => {
                 {allTweets.slice(0).reverse().map((tweet, index) => {
                     return (
                         <div key={index}>
-                            <Tweet tweet={tweet}/>
+                            <Tweet tweet={tweet} account={account}/>
                         </div>
                     )
                 })}

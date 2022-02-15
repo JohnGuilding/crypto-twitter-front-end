@@ -33,7 +33,7 @@ const Dashboard = () => {
                 <button onClick={connectWallet}>Connect Wallet</button>
             )}
             <PostTweet />
-            <TweetFeed />
+            <TweetFeed account={currentAccount} />
         </main>
     )
 }
