@@ -44,7 +44,7 @@ const PostTweet = () => {
         setValue("");
     }
     return (
-        <div className="post-tweet-container">
+        <div className="form-container">
             <form onSubmit={handleSubmit} className="form">
                 <input 
                     type="text" 
