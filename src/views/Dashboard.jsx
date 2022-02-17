@@ -29,10 +29,15 @@ const Dashboard = () => {
         <main className="dashboard">
             <MintNFTButton />
             {!currentAccount && (
-                <button onClick={connectWallet}>Connect Wallet</button>
+                <button onClick={connectWallet}>Connect Wallet to view and post content!</button>
             )}
-            <PostTweet />
-            <TweetFeed account={currentAccount} />
+            {currentAccount && (
+                <>
+                <PostTweet />
+                <TweetFeed account={currentAccount} />
+                </>
+            )}
+
         </main>
     )
 }
