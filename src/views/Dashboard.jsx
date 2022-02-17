@@ -8,7 +8,6 @@ import './../styles/dashboard.scss';
 const Dashboard = () => {
     const [currentAccount, setCurrentAccount] = useState("");
 
-
     const connectWallet = async () => {
         try {
             const { ethereum } = window;
