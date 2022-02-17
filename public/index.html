@@ -24,7 +24,34 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <title>React App</title>
+
+    <!-- Unlock snippet -->
+    <script>
+    (function(d, s) {
+      var js = d.createElement(s),
+        sc = d.getElementsByTagName(s)[0];
+      js.src="https://paywall.unlock-protocol.com/static/unlock.1.0.min.js";
+      sc.parentNode.insertBefore(js, sc); }(document, "script"));
+    </script>
+
+    <!-- Unlock Configuration -->
+    <script>
+      var unlockProtocolConfig = {
+        locks: {
+          '0x9932885a089E8C4E1e4127C2eF7553d3DC9C8f50': {
+            network: 4,
+            name: 'Membership',
+          },
+        },
+        icon: 'https://unlock-protocol.com/images/svg/unlock-word-mark.svg',
+        callToAction: {
+          default:
+            'Check your wallet and unlock me!',
+        },
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

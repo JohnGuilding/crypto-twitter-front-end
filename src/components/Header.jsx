@@ -4,6 +4,12 @@ import './../styles/header.scss';
 const Header = () => {
     return (
         <header className='header'>
+            <div>
+                Unlocked!{" "}
+                <span aria-label="unlocked" role="img">
+                🗝
+                </span>
+            </div>
             <h1>Cyptwit</h1>
             <h2>
                 <Link to="/">Dashboard</Link>
