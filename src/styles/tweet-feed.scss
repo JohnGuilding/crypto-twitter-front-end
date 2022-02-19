@@ -1,6 +1,18 @@
 .tweet-feed {
-    width: 40%;
+    width: 90%;
     margin: 0.5rem;
     padding: 2rem;
     border-radius: 1rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .tweet-feed {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .tweet-feed {
+        width: 50%;
+    }
 }
