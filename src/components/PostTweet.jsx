@@ -8,7 +8,7 @@ const PostTweet = () => {
     const contractAddress = '0x72699E6B9ce89a69EC6C0cdC005C41b97e5Bac3D';
     const contractABI = abi.abi;
 
-    const postTweet = async (message) => {
+    const postTweet = async ({ message, showToast}) => {
         try {
             const { ethereum } = window
 
@@ -28,9 +28,11 @@ const PostTweet = () => {
                 console.log("You've posted a tweet:", message);
             } else {
                 console.log("ethereum object doesn't exist!");
+                showToast('error')
             }
         } catch (error) {   
             console.log(error);
+            showToast('error')
         }
     }
 

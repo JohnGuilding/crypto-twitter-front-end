@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import './../styles/tweet.scss';
 
-const Tweet = ({ tweet, account }) => {
+const Tweet = ({ tweet, account, showToast }) => {
     const [value, setValue] = useState(0);
 
     const tip = async (address, amount) => {
@@ -27,12 +27,15 @@ const Tweet = ({ tweet, account }) => {
                 await signer.sendTransaction(transaction).then((txn) => {
                     console.dir(txn);
                     alert(`You've sent ${amount} to ${address}`);
+                    showToast('success');
                 });
             } else {
                 console.log("ethereum object doesn't exist!");
+                showToast('error');
             }
         } catch (error) {   
             console.log(error);
+            showToast('error');
         }
     }
 
@@ -47,6 +50,7 @@ const Tweet = ({ tweet, account }) => {
             setValue(0);
         } catch (error) {
             console.log('An unexpected error occurred:', error);
+            showToast('error');
         }
     }
 

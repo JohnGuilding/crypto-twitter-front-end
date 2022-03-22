@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import './../styles/tweet-feed.scss';
 import abi from './../utils/Cryptwit.json';
 
-const TweetFeed = ({ account }) => {
+const TweetFeed = ({ account, showToast }) => {
     const [allTweets, setAllTweets] = useState([]);
     const contractAddress = '0x72699E6B9ce89a69EC6C0cdC005C41b97e5Bac3D';
     const contractABI = abi.abi;
@@ -35,9 +35,11 @@ const TweetFeed = ({ account }) => {
                 setAllTweets(tweetObjects);
             } else {
                 console.log("ethereum object doesn't exist!");
+                showToast('error');
             }
         } catch (error) {
             console.log(error);
+            showToast('error');
         }
     }
 
@@ -53,6 +55,7 @@ const TweetFeed = ({ account }) => {
             const { ethereum } = window;
             if (!ethereum) {
                 console.log("Make sure you have metamask");
+                showToast('error');
             } else {
                 console.log("We have the ethereum object", ethereum);
             }
@@ -65,9 +68,11 @@ const TweetFeed = ({ account }) => {
                 console.log("Found an authorized account", account);
             } else {
                 console.log("No authorized account found");
+                showToast('error');
             }
         } catch (error) {
             console.log(error);
+            showToast('error');
         }
     }
 
@@ -82,7 +87,7 @@ const TweetFeed = ({ account }) => {
                 {allTweets.slice(0).reverse().map((tweet, index) => {
                     return (
                         <div key={index}>
-                            <Tweet tweet={tweet} account={account}/>
+                            <Tweet tweet={tweet} account={account} showToast={showToast}/>
                         </div>
                     )
                 })}
