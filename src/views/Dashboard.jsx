@@ -72,6 +72,9 @@ const Dashboard = () => {
 
     return (
         <main className="dashboard">
+            <p className='header__unlock-text'>
+                App Unlocked <span aria-label="unlocked" role="img">🗝</span>
+            </p>
             <MintNFTButton />
             {!currentAccount && (
                 <button onClick={connectWallet}>Connect Wallet to view and post content!</button>
