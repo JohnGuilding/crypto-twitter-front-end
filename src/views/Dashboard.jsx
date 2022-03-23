@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ethers } from "ethers";
 
 import MintNFTButton from "../components/MintNFTButton";
 import PostTweet from "../components/PostTweet";
@@ -9,6 +10,10 @@ import './../styles/dashboard.scss';
 const Dashboard = () => {
     const [currentAccount, setCurrentAccount] = useState("");
     const [list, setList] = useState([]);
+    const [value, setValue] = useState(0);
+    // Using this 3 times, put it in .env
+    const contractAddress = '0x2A4c5DC46f064e6BD805B57DB429E94F0E85CA6e';
+
     let toastProperties = null;
 
     const connectWallet = async () => {
@@ -70,12 +75,74 @@ const Dashboard = () => {
         setList([...list, toastProperties]);
     }
 
+    const sendMoneyToLotteryPool = async (address, amount) => {
+        try {
+            const { ethereum } = window
+
+            if (ethereum) {
+                const provider = new ethers.providers.Web3Provider(ethereum);
+                const signer = provider.getSigner();
+
+                const gasPrice = await provider.getGasPrice();
+
+                const transaction = {
+                    from: currentAccount,
+                    to: address,
+                    value: ethers.utils.parseEther(amount),
+                    nonce: provider.getTransactionCount(currentAccount, "latest"),
+                    gasLimit: ethers.utils.hexlify(100000),
+                    gasPrice: gasPrice,
+                };
+
+                await signer.sendTransaction(transaction).then((txn) => {
+                    console.dir(txn);
+                    alert(`You've sent ${amount} to ${address}`);
+                    showToast('success');
+                });
+            } else {
+                console.log("ethereum object doesn't exist!");
+                showToast('error');
+            }
+        } catch (error) {   
+            console.log(error);
+            showToast('error');
+        }
+    }
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    }
+
+    const handleSubmit = async (event, address) => {
+        try {
+            event.preventDefault();
+            await sendMoneyToLotteryPool(address, value);
+            setValue(0);
+        } catch (error) {
+            console.log('An unexpected error occurred:', error);
+            showToast('error');
+        }
+    }
+
     return (
         <main className="dashboard">
             <p className='header__unlock-text'>
                 App Unlocked <span aria-label="unlocked" role="img">🗝</span>
             </p>
             <MintNFTButton />
+            <form onSubmit={(event) => handleSubmit(event, contractAddress)} className="dashboard__lottery-form">
+                <input 
+                    type="number" 
+                    value={value} 
+                    placeholder="Enter an amount in ETH" 
+                    onChange={handleChange} 
+                    className=""/>
+                <input 
+                    type="submit" 
+                    value="Send money to lottery pool" 
+                    className=""/>
+            </form>
+            <p>Everytime you tweet, you're entered into a draw to win the lottery prize</p>
             {!currentAccount && (
                 <button onClick={connectWallet}>Connect Wallet to view and post content!</button>
                 )}

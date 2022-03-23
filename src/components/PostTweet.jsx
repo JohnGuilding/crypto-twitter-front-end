@@ -3,14 +3,14 @@ import { ethers } from "ethers";
 import abi from './../utils/Cryptwit.json';
 import './../styles/post-tweet.scss'
 
-const PostTweet = () => {
+const PostTweet = ({ showToast }) => {
     const [value, setValue] = useState("");
-    const contractAddress = '0x72699E6B9ce89a69EC6C0cdC005C41b97e5Bac3D';
+    const contractAddress = '0x2A4c5DC46f064e6BD805B57DB429E94F0E85CA6e';
     const contractABI = abi.abi;
 
-    const postTweet = async ({ message, showToast}) => {
+    const postTweet = async (message) => {
         try {
-            const { ethereum } = window
+            const { ethereum } = window;
 
             if (ethereum) {
                 const provider = new ethers.providers.Web3Provider(ethereum);
@@ -28,11 +28,11 @@ const PostTweet = () => {
                 console.log("You've posted a tweet:", message);
             } else {
                 console.log("ethereum object doesn't exist!");
-                showToast('error')
+                showToast('error');
             }
         } catch (error) {   
             console.log(error);
-            showToast('error')
+            showToast('error');
         }
     }
 
