@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [list, setList] = useState([]);
     const [value, setValue] = useState(0);
     // Using this 3 times, put it in .env
-    const contractAddress = '0x2A4c5DC46f064e6BD805B57DB429E94F0E85CA6e';
+    const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
     let toastProperties = null;
 

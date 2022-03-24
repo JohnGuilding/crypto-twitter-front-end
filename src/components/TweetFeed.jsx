@@ -6,7 +6,7 @@ import abi from './../utils/Cryptwit.json';
 
 const TweetFeed = ({ account, showToast }) => {
     const [allTweets, setAllTweets] = useState([]);
-    const contractAddress = '0x2A4c5DC46f064e6BD805B57DB429E94F0E85CA6e';
+    const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
     const contractABI = abi.abi;
 
     const getTweets = async () => {
