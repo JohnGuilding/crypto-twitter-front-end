@@ -129,22 +129,24 @@ const Dashboard = () => {
             <p className='header__unlock-text'>
                 App Unlocked <span aria-label="unlocked" role="img">🗝</span>
             </p>
-            <MintNFTButton />
-            <form onSubmit={(event) => handleSubmit(event, contractAddress)} className="dashboard__lottery-form">
-                <input 
-                    type="number" 
-                    value={value} 
-                    placeholder="Enter an amount in ETH" 
-                    onChange={handleChange} 
-                    className=""/>
-                <input 
-                    type="submit" 
-                    value="Send money to lottery pool" 
-                    className=""/>
-            </form>
-            <p>Everytime you tweet, you're entered into a draw to win the lottery prize</p>
+            <div className="dashboard__secondary-menu">
+                <MintNFTButton />
+                <form onSubmit={(event) => handleSubmit(event, contractAddress)} className="dashboard__lottery-form">
+                    <input
+                        type="number"
+                        value={value}
+                        placeholder="Enter an amount in ETH"
+                        onChange={handleChange}
+                        className='dashboard__input'/>
+                    <input
+                        type="submit"
+                        value="Send money to lottery pool"
+                        className="dashboard__submit-button"/>
+                    <p>Everytime you tweet, you're entered into a draw to win the lottery prize</p>
+                </form>
+            </div>
             {!currentAccount && (
-                <button onClick={connectWallet}>Connect Wallet to view and post content!</button>
+                <button className='dashboard__connect-wallet-button' onClick={connectWallet}>Connect Wallet to view and post content!</button>
                 )}
             {currentAccount && (
                 <>

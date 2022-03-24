@@ -81,19 +81,17 @@ const TweetFeed = ({ account, showToast }) => {
     }, [])
 
     return (
-        <div className="tweet-feed">
+        <>
             {allTweets.length >= 1 && (
-                <section className="tweet-feed_tweets">
-                {allTweets.slice(0).reverse().map((tweet, index) => {
-                    return (
-                        <div key={index}>
-                            <Tweet tweet={tweet} account={account} showToast={showToast}/>
-                        </div>
-                    )
-                })}
-            </section>
+                <section className="tweet-feed">
+                    {allTweets.slice(0).reverse().map((tweet, index) => {
+                        return (
+                            <Tweet key={index} tweet={tweet} account={account} showToast={showToast}/>
+                        )
+                    })}
+                </section>
             )}
-        </div>
+        </>
     )
 }
 

@@ -1,3 +1,17 @@
-.mint-nft-button {
+.mint-nft__container {
+    border: 1px solid grey;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, #302d2f, #0f0f0f);
+    padding: 1rem 0;
     margin: 1rem;
+}
+
+.mint-nft__button {
+    margin: 1rem;
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    background: linear-gradient(to left, #8E2DE2, #4A00E0);
+    border-radius: 3rem;
+    cursor: pointer;
 }

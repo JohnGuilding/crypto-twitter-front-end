@@ -56,21 +56,21 @@ const Tweet = ({ tweet, account, showToast }) => {
 
     return (
         <div className="tweet">
-            <h3>Tweet address: {tweet.address}</h3>
+            <h3>{tweet.address}</h3>
             <p>"{tweet.message}"</p>
             <p>Posted on {tweet.dateTime}</p>
             <div className="">
-            <form onSubmit={(event) => handleSubmit(event, tweet.address)} className="">
+            <form onSubmit={(event) => handleSubmit(event, tweet.address)} className="tweet__tip-form">
                 <input 
                     type="number" 
                     value={value} 
                     placeholder="Enter an amount in ETH" 
                     onChange={handleChange} 
-                    className=""/>
+                    className="tweet__input"/>
                 <input 
                     type="submit" 
                     value="Tip" 
-                    className=""/>
+                    className="tweet__submit-button"/>
             </form>
         </div>
         </div>

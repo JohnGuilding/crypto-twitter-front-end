@@ -1,13 +1,15 @@
 .tweet {
     width: 100%;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid grey;
-    border-radius: 1rem;
+    padding: 1rem;
+    border-top: 1px solid grey;
     word-wrap: break-word;
 
     h3 {
         margin: 0.5rem;
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     p {
@@ -15,13 +17,32 @@
     }
 }
 
+.tweet__tip-form {
+    margin: 1rem;
+
+}
+
+.tweet__input {
+    padding: 0.5rem;
+    border-radius: 3rem;
+    color: #000;
+}
+
+.tweet__submit-button {
+    padding: 0.5rem;
+    border: none;
+    background: linear-gradient(to left, #ec008c, #fc6767);
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 500px) {
     .tweet {
-        margin: 1rem;
         padding: 1rem;
 
         h3 {
             margin: 1rem;
+            width: 90%;
         }
 
         p {
