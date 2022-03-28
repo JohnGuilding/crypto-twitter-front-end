@@ -16,7 +16,7 @@
 .header__list {
     list-style-type: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     align-self: center;
     position: relative;
@@ -49,13 +49,14 @@
     .header__list {
         position: absolute;
         flex-direction: column;
+        justify-content: center;
         height: 100vh;
         width: 100%;
         background-color: #1a1918;
     }
 
     .header__list-item:nth-child(1){
-        margin-top: 50px;
+        margin-top: 10rem;
     }
 
     .header__list-item {

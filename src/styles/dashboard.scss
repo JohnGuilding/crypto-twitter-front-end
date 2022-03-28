@@ -13,19 +13,23 @@
 }
 
 .dashboard__lottery-form {
+    height: 17rem;
+    width: 100%;
     border: 1px solid grey;
     border-radius: 1rem;
     background: linear-gradient(90deg, #302d2f, #0f0f0f);
-    padding: 2rem 1rem;
+    padding: 2rem;
     margin: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 
     p {
         width: 200px;
         font-size: 0.7rem;
         word-wrap: break-word;
         white-space: normal;
+        align-self: center;
     }
 }
 
@@ -44,9 +48,24 @@
 }
 
 .dashboard__connect-wallet-button {
+    margin-top: 2rem;
     padding: 1rem;
     border: none;
     background: linear-gradient(to left, #f953c6, #b91d73);
     border-radius: 3rem;
     cursor: pointer;
+}
+
+
+@media only screen and (min-width: 500px) {
+
+    .dashboard__secondary-menu {
+        width: 20rem;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .dashboard__secondary-menu {
+        width: 30rem;
+    }
 }
