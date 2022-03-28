@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 
-import MintNFTButton from "../components/MintNFTButton";
 import PostTweet from "../components/PostTweet";
 import TweetFeed from '../components/TweetFeed';
 import ToastMessage from '../components/ToastMessage.jsx';
@@ -11,7 +10,6 @@ const Dashboard = () => {
     const [currentAccount, setCurrentAccount] = useState("");
     const [list, setList] = useState([]);
     const [value, setValue] = useState(0);
-    // Using this 3 times, put it in .env
     const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
     let toastProperties = null;
@@ -126,30 +124,27 @@ const Dashboard = () => {
 
     return (
         <main className="dashboard">
-            <p className='header__unlock-text'>
-                App Unlocked <span aria-label="unlocked" role="img">🗝</span>
-            </p>
-            <div className="dashboard__secondary-menu">
-                <MintNFTButton />
-                <form onSubmit={(event) => handleSubmit(event, contractAddress)} className="dashboard__lottery-form">
-                    <input
-                        type="number"
-                        value={value}
-                        placeholder="Enter an amount in ETH"
-                        onChange={handleChange}
-                        className='dashboard__input'/>
-                    <input
-                        type="submit"
-                        value="Send money to lottery pool"
-                        className="dashboard__submit-button"/>
-                    <p>Everytime you tweet, you're entered into a draw to win the lottery prize</p>
-                </form>
-            </div>
             {!currentAccount && (
                 <button className='dashboard__connect-wallet-button' onClick={connectWallet}>Connect Wallet to view and post content!</button>
                 )}
             {currentAccount && (
                 <>
+                    <div className="dashboard__secondary-menu">
+                        <form onSubmit={(event) => handleSubmit(event, contractAddress)} className="dashboard__lottery-form">
+                            <h3>Lottery</h3>
+                            <input
+                                type="number"
+                                value={value}
+                                placeholder="Enter an amount in ETH"
+                                onChange={handleChange}
+                                className='dashboard__input'/>
+                            <input
+                                type="submit"
+                                value="Send money to lottery pool"
+                                className="dashboard__submit-button"/>
+                            <p>Everytime you tweet, you're entered into a draw to win the lottery prize</p>
+                        </form>
+                    </div>
                     <PostTweet showToast={showToast} />
                     <TweetFeed account={currentAccount} showToast={showToast}/>
                 </>
