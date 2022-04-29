@@ -31,12 +31,15 @@ const App = () => {
   return (
     <div className="app">
           {locked === "locked" && (
-            <div onClick={checkout} className="locked" style={{ cursor: "pointer" }}>
-              Unlock me!{" "}
-              <span aria-label="locked" role="img">
-                🔒
-              </span>
-            </div>
+            <>
+              <div onClick={checkout} className="locked" style={{ cursor: "pointer" }}>
+                Unlock me!{" "}
+                <span aria-label="locked" role="img">
+                  🔒
+                </span>
+              </div>
+              <p>You're using Unlock Protocol to access this site. Unlock is a protocol for memberships as NFTs</p>
+            </>
           )}
           {locked === "unlocked" && (
               <BrowserRouter>
